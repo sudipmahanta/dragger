@@ -1,4 +1,5 @@
 import 'package:cards/card01.dart';
+import 'package:cards/test_drag.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Card01(),
+      // home: const Card01(),
+      home: const DragTest(),
     );
   }
 }

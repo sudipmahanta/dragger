@@ -9,17 +9,24 @@ class Dragger extends StatefulWidget {
   final double? height;
   final Widget child;
   void Function(DragUpdateDetails)? onPanUpdate;
-  Dragger({super.key, this.left, this.top, this.right, this.bottom, required this.child, this.width, this.height, this.onPanUpdate}) :
-        assert(left == null || right == null || width == null),
+  Dragger(
+      {super.key,
+      this.left,
+      this.top,
+      this.right,
+      this.bottom,
+      required this.child,
+      this.width,
+      this.height,
+      this.onPanUpdate})
+      : assert(left == null || right == null || width == null),
         assert(right == null || bottom == null || height == null);
-
 
   @override
   State<Dragger> createState() => _DraggerState();
 }
 
 class _DraggerState extends State<Dragger> {
-
   double? left;
   double? top;
   double? bottom;
@@ -34,10 +41,8 @@ class _DraggerState extends State<Dragger> {
     bottom = widget.bottom;
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return Positioned(
       right: right,
       bottom: bottom,
@@ -61,10 +66,11 @@ class _DraggerState extends State<Dragger> {
           //   });
           // },
           onTap: () {
+            setState(() {
+              widget.onPanUpdate;
+            });
           },
-          child: widget.child
-      ),
+          child: widget.child),
     );
   }
 }
-
