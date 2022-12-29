@@ -3,22 +3,27 @@ import 'dart:math';
 import 'package:cards/cards.dart';
 import 'package:flutter/material.dart';
 
-class Card01 extends StatefulWidget {
+class NewWidget extends StatefulWidget {
   double left;
   double top;
+  double bottom;
+  double right;
+
   final Widget child;
-  Card01(
+  NewWidget(
       {Key? key,
       this.left = 0.0,
       this.top = 0.0,
+      this.right = 0.0,
+      this.bottom = 0.0,
       this.child = const SizedBox()})
       : super(key: key);
 
   @override
-  State<Card01> createState() => _Card01State();
+  State<NewWidget> createState() => _NewWidgetState();
 }
 
-class _Card01State extends State<Card01> {
+class _NewWidgetState extends State<NewWidget> {
   // double right = 150.0;
   // double bottom = 0.0;
 
@@ -28,11 +33,14 @@ class _Card01State extends State<Card01> {
     double height = MediaQuery.of(context).size.height -
         (MediaQuery.of(context).padding.top +
             MediaQuery.of(context).padding.bottom);
-    return Positioned(
+    return Container(
+      margin: EdgeInsets.only(
+          left: widget.left,
+          right: widget.right,
+          top: widget.top,
+          bottom: widget.bottom),
       // bottom: bottom,
       // right: 10,
-      left: widget.left,
-      top: widget.top,
 
       child: GestureDetector(
           onPanUpdate: (details) {
