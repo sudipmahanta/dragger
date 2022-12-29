@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class StatefulDragArea extends StatefulWidget {
   final Widget child;
-
   const StatefulDragArea({Key? key, required this.child}) : super(key: key);
 
   @override
@@ -10,7 +9,7 @@ class StatefulDragArea extends StatefulWidget {
 }
 
 class _DragAreaStateStateful extends State<StatefulDragArea> {
-  Offset position = Offset(100, 100);
+  Offset position = const Offset(100, 100);
 
   @override
   Widget build(BuildContext context) {
